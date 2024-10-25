@@ -10,6 +10,7 @@ namespace TestProject1
     public class TestCalculator
     {
         IWebDriver driver;
+        private ChromeOptions options;
         IWebElement textBoxFirstNum;
         IWebElement textBoxSecondNum;
         IWebElement dropDownOperation;
@@ -20,7 +21,13 @@ namespace TestProject1
         [SetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
+            options = new ChromeOptions();
+            options.AddArguments("headless");
+            options.AddArguments("no-sandbox");
+            options.AddArguments("disable-dev-shm-usage");
+            options.AddArguments("disable-gpu");
+            options.AddArguments("window-size=1920x1080");
+            driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Url = "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com/number-calculator/";
 
