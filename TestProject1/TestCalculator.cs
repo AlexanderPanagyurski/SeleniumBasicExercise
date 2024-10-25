@@ -28,6 +28,7 @@ namespace TestProject1
             options.AddArguments("disable-gpu");
             options.AddArguments("window-size=1920x1080");
             driver = new ChromeDriver(options);
+
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Url = "http://softuni-qa-loadbalancer-2137572849.eu-north-1.elb.amazonaws.com/number-calculator/";
 
